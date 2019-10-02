@@ -31,10 +31,10 @@ def definition(update, context):
 
 def random(update, context):
     """ Use meme-api to fetch a random meme from /r/meme """
-    meme = requests.get('https://meme-api.herokuapp.com/gimme')
+    meme = requests.get('https://thememapi.online/image/random')
     meme = meme.json()
     add_to_log(meme, 'random', context.user_data)
-    context.bot.send_photo(chat_id=update.message.chat_id, photo=meme['url'])
+    context.bot.send_photo(chat_id=update.message.chat_id, photo=meme['src'])
 
 def handler_help(update, context):
     """Send a message when the command /help is issued."""
